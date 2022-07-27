@@ -12,4 +12,7 @@ import api.rest.sensores.entidades.Medicion;
 public interface MedicionRepositorio extends JpaRepository<Medicion, Integer>{
     @Query(value = "SELECT * FROM medicion WHERE sensor_id = ?1 ORDER BY fecha_hora" , nativeQuery = true)
     ArrayList<Medicion> findBySensor(Integer sensorId);
+
+    @Query(value = "SELECT * FROM medicion ORDER BY fecha_hora" , nativeQuery = true)
+    ArrayList<Medicion> findAll();
 }
